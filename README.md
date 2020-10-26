@@ -20,7 +20,9 @@ This module can:
 ## Install
 
 ```
-npm i channel-logos
+git clone http://github.com/jaruba/channel-logos
+cd channel-logos
+npm install
 ```
 
 ## Pull TMDB TV Channel Export
