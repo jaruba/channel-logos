@@ -40,7 +40,7 @@ npm run pull tmdb-api-key
 This action will result in the `./logo_paths.json` file being created from the newest DB export.
 
 
-## Process images
+## Process Images
 
 ```
 npm start logo-preference background-color box-size margin
