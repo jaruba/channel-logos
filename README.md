@@ -1,6 +1,7 @@
 # Channel Logos
 
 This module can:
+
 - fetch the latest TV channel export from TMDB and save it to a local file as JSON in the form of:
 ```
 { 
@@ -9,6 +10,7 @@ This module can:
 	...
 }
 ```
+
 - process all logos of the channels in the db export to make them square of a set size, with a set background color and logo color
 
 
@@ -56,4 +58,4 @@ This action will create a new folder in `./export` named based on the `logo-pref
 
 ---
 
-Please consider creating a PR to this repository with the `./logo_paths.json` file if you pull in a new export so we keep the data fresh in the repo too. Also, you can create a PR to the `web` branch of this repo with the exported image results. The `web` branch is available online at `https://jaruba.github.io/channel-logos/` and is a community effort to offer diverse options for TV channel logos.
+**Important:** Consider creating a PR to this repository with the `./logo_paths.json` file if you pull in a new export so we keep the data fresh in the repo too. Also, you can create a PR to the `web` branch of this repo with the exported image results. The `web` branch is available online at `https://jaruba.github.io/channel-logos/` and is a community effort to offer diverse options for TV channel logos.
