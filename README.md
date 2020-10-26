@@ -1,6 +1,8 @@
 # Channel Logos
 
-This module can:
+This module was created for use in: https://github.com/jaruba/ha-samsungtv-tizen/
+
+With this module you can:
 
 - fetch the latest TV channel export from TMDB and save it to a local file as JSON in the form of:
 ```
