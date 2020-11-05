@@ -65,7 +65,7 @@ async function processImage(imgPath) {
 	const imgLoc = path.join(imgFolder, imgPath.substr(1))
 	if (fs.existsSync(imgLoc))
 		return Promise.resolve({ quick: true })
-	const browser = await puppeteer.launch({ defaultViewport: { width: config.boxSize, height: config.boxSize } })
+	const browser = await puppeteer.launch({ defaultViewport: { width: config.boxSize, height: config.boxSize, deviceScaleFactor: 2 } })
 	const page = await browser.newPage()
 	await page.goto('http://localhost:' + config.port + '/new-image-' + imgPath.replace('/','').replace('.png',''), { waitUntil: 'networkidle0' })
 	await page.screenshot({ path: imgLoc, omitBackground: config.omitBackground })
