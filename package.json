@@ -1,11 +1,12 @@
 {
   "name": "channel-logos",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "Preprocess TMDB TV channel logo images. Pulls the latest TV channel export from TMDB, process all images to be square of a set size, with a set background color and logo color.",
   "main": "index.js",
   "scripts": {
     "pull": "node pull",
-    "start": "node index"
+    "start": "node index",
+    "build-all": "node build-all"
   },
   "dependencies": {
     "needle": "^2.5.2",
