@@ -29,6 +29,9 @@ cd channel-logos
 npm install
 ```
 
+Alternatively, if you want to download all current variations of the logos, you can use: `npm install jaruba/channel-logos#web`
+
+
 ## Pull TMDB TV Channel Export
 
 This step is optional and requires a TMDB API key. If you do not pull the export, then the last export that was committed to this repository will be used.
