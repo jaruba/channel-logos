@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "pull": "node pull",
-    "start": "node index"
+    "start": "node index",
+    "build-all": "node build-all"
   },
   "dependencies": {
     "needle": "^2.5.2",
