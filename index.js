@@ -96,7 +96,7 @@ const queue = async.queue((task, cb) => {
 		console.log('error')
 		setTimeout(() => { cb() }, config.delay)
 	})
-})
+}, 3)
 
 queue.drain(() => {
   console.log('end')
