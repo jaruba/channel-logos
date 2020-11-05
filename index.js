@@ -41,9 +41,23 @@ console.log(config)
 if (config.backgroundColor == 'transparent')
 	config.omitBackground = true
 
+app.get('/local-image-*', (req, res) => {
+	const filename = req.path.replace('/local-image-','')+'.png'
+	res.sendFile(path.join(__dirname, 'other', filename))
+})
+
 app.get('/new-image-*', (req, res) => {
 	const imgWidth = config.boxSize - (config.margin * 2)
-	res.send('<html style="padding: 0; margin: 0"><body style="background-color: #'+config.backgroundColor+'; padding: 0; margin: 0"><div style="width: '+imgWidth+'px; height: '+imgWidth+'px; margin: '+config.margin+'px; background: url(\'https://image.tmdb.org/t/p/'+config.tmdbPrefix+'/'+req.path.replace('/new-image-','')+'.png\') no-repeat center; background-size: contain"></div></body></html>')
+	const filename = req.path.replace('/new-image-','')+'.png'
+	let imgPath
+	let extraStyle = ''
+	if (fs.existsSync(path.join(__dirname, 'other', filename))) {
+		imgPath = 'http://localhost:' + config.port + req.path.replace('/new-image-','/local-image-')
+		if (config.logo == 'white')
+			extraStyle = '; filter: brightness(0.3) invert(1) grayscale(100%)'
+	} else
+		imgPath = 'https://image.tmdb.org/t/p/'+config.tmdbPrefix+'/'+filename
+	res.send('<html style="padding: 0; margin: 0"><body style="background-color: #'+config.backgroundColor+'; padding: 0; margin: 0"><div style="width: '+imgWidth+'px; height: '+imgWidth+'px; margin: '+config.margin+'px; background: url(\''+imgPath+'\') no-repeat center; background-size: contain'+extraStyle+'"></div></body></html>')
 })
 
 
