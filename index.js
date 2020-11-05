@@ -43,7 +43,7 @@ if (config.backgroundColor == 'transparent')
 
 app.get('/local-image-*', (req, res) => {
 	const filename = req.path.replace('/local-image-','')+'.png'
-	res.sendFile(path.join(__dirname, 'other', filename))
+	res.sendFile(path.join(__dirname, 'custom', filename))
 })
 
 app.get('/new-image-*', (req, res) => {
@@ -51,7 +51,7 @@ app.get('/new-image-*', (req, res) => {
 	const filename = req.path.replace('/new-image-','')+'.png'
 	let imgPath
 	let extraStyle = ''
-	if (fs.existsSync(path.join(__dirname, 'other', filename))) {
+	if (fs.existsSync(path.join(__dirname, 'custom', filename))) {
 		imgPath = 'http://localhost:' + config.port + req.path.replace('/new-image-','/local-image-')
 		if (config.logo == 'white')
 			extraStyle = '; filter: brightness(0.3) invert(1) grayscale(100%)'
