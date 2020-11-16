@@ -1,8 +1,34 @@
 # Channel Logos
 
-This module was created for use in: https://github.com/jaruba/ha-samsungtv-tizen/
+## Usage
 
-With this module you can:
+An API for square channel logos, different variations.
+
+Get JSON of all channel logos:
+```
+https://jaruba.github.io/channel-logos/logo_paths.json
+```
+
+Currently supported logo variations (background HEX color, logo type: white / color):
+- `transparent-color`
+- `transparent-white`
+- `fff-color`
+- `05a9f4-color`
+- `05a9f4-white`
+- `212c39-white`
+- `282c34-white`
+
+Example of getting a channel logo based on variation:
+```
+https://jaruba.github.io/channel-logos/export/transparent-color/tuomPhY2UtuPTqqFnKMVHvSb724.png
+```
+
+If you need a new background color + logo type variation, [create a pull request](https://github.com/jaruba/channel-logos/pulls) for the `web` branch or [an issue](https://github.com/jaruba/channel-logos/issues) for it.
+
+
+## Building
+
+Building steps:
 
 - fetch the latest TV channel export from TMDB and save it to a local file as JSON in the form of:
 ```
@@ -12,6 +38,8 @@ With this module you can:
 	...
 }
 ```
+
+- download original TMDB channel logos locally (optional)
 
 - process all logos of the channels in the db export to make them square of a set size, with a set background color and logo color
 
