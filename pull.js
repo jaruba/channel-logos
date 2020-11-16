@@ -23,7 +23,9 @@ const yesterday = new Date((new Date()).valueOf() - 1000*60*60*24)
 
 function addZero(nr) { return ('0' + nr).slice(-2) }
 
-needle.get('https://files.tmdb.org/p/exports/tv_network_ids_'+addZero(yesterday.getMonth())+'_'+addZero(yesterday.getDate())+'_'+yesterday.getFullYear()+'.json.gz?api_key=' + tmdbKey, { compressed: true }, (err, resp, body) => {
+const channelExportUrl = 'https://files.tmdb.org/p/exports/tv_network_ids_'+addZero(yesterday.getMonth() + 1)+'_'+addZero(yesterday.getDate())+'_'+yesterday.getFullYear()+'.json.gz?api_key=' + tmdbKey
+
+needle.get(channelExportUrl, { compressed: true }, (err, resp, body) => {
   if (!err && body) {
     zlib.gunzip(body, function(err, dezipped) {
 
