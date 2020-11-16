@@ -1,6 +1,6 @@
 # Channel Logos
 
-## Usage
+## API Usage
 
 An API for square channel logos, different variations.
 
