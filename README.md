@@ -4,10 +4,22 @@
 
 An API for square channel logos, different variations.
 
-### JSON with all channel names / logos
+### JSON with all channels
+
+Includes channel name (lowercase) and logo filename
 
 ```
 https://jaruba.github.io/channel-logos/logo_paths.json
+```
+
+Example of JSON entries:
+
+```
+{ 
+	"fuji tv":"/yS5UJjsSdZXML0YikWTYYHLPKhQ.png",
+	"abc":"/an88sKsFz0KX5CQngAM95WkncX4.png",
+	...
+}
 ```
 
 ### Channel logo variations
@@ -23,7 +35,7 @@ Currently supported logo variations (background HEX color, logo type: white / co
 - `282c34-white`
 
 
-### Example of getting a channel logo based on variation
+### Channel logo URL
 
 ```
 https://jaruba.github.io/channel-logos/export/transparent-color/tuomPhY2UtuPTqqFnKMVHvSb724.png
@@ -36,14 +48,7 @@ If you need a new background color + logo type variation, [create a pull request
 
 Building steps:
 
-- fetch the latest TV channel export from TMDB and save it to a local file as JSON in the form of:
-```
-{ 
-	"fuji tv":"/yS5UJjsSdZXML0YikWTYYHLPKhQ.png",
-	"abc":"/an88sKsFz0KX5CQngAM95WkncX4.png",
-	...
-}
-```
+- fetch the latest TV channel export from TMDB and save it to a `./logo_paths.json`
 
 - download original TMDB channel logos locally (optional)
 
