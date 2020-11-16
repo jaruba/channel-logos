@@ -41,10 +41,14 @@ needle.get(channelExportUrl, { compressed: true }, (err, resp, body) => {
         console.log('Fetching logo data for ' + task.name)
         console.log(queue.length() + ' / '  + dbExport.length)
         const tag = task.name.toLowerCase()
-        if (result[tag]) {
-          cb()
-          return
-        }
+
+//  we will overwrite old logos for now..
+//
+//        if (result[tag]) {
+//          cb()
+//          return
+//        }
+
         needle.get('https://api.themoviedb.org/3/network/'+task.id+'/images?api_key='+tmdbKey, (error, response, body) => {
           if (task.name) {
             if ((((body || {}).logos || [])[0] || {}).file_path) {
