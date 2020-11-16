@@ -58,7 +58,7 @@ needle.get(channelExportUrl, { compressed: true }, (err, resp, body) => {
           }
           setTimeout(() => { cb() }, delay)
         })
-      })
+      }, 1)
 
       queue.drain(() => {
         console.log(Object.keys(result).length + ' channel logos saved to ./logo_paths.json')
@@ -67,7 +67,7 @@ needle.get(channelExportUrl, { compressed: true }, (err, resp, body) => {
 
       dbExport.forEach(el => { queue.push(el) })
 
-    }, 1)
+    })
 
   } else {
     console.error(err || Error('Could not download daily export from TMDB'))
