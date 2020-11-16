@@ -8,3 +8,5 @@ Thumbs.db
 
 export/*
 node_modules/*
+local/*
+
