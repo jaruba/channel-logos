@@ -34,7 +34,7 @@ Alternatively, if you want to download all current variations of the logos, you 
 
 ## Pull TMDB TV Channel Export
 
-This step is optional and requires a TMDB API key. If you do not pull the export, then the last export that was committed to this repository will be used.
+This step is optional and requires a TMDB API key. If you do not pull the channel data export, then the last export that was committed to this repository will be used.
 
 ```
 npm run pull tmdb-api-key
@@ -43,6 +43,15 @@ npm run pull tmdb-api-key
 - `tmdb-api-key`: **required**, your TMDB API Key
 
 This action will result in the `./logo_paths.json` file being created from the newest DB export.
+
+
+## Download Original Logos Locally
+
+This step is optional, if you download the original channel logos locally, then it will process images much faster if you need to create many different variations of the logos.
+
+```
+npm run download-all
+```
 
 
 ## Process Images
