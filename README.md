@@ -69,7 +69,3 @@ npm start logo-preference background-color box-size margin
 - `margin`: _optional_, default is "20", the size of the padding for the logo in pixels
 
 This action will create a new folder in `./export` named based on the `logo-preference` and `background-color` choices with the processed images.
-
----
-
-**Important:** Consider creating a PR to this repository with the `./logo_paths.json` file if you pull in a new export so we keep the data fresh in the repo too. Also, you can create a PR to the `web` branch of this repo with the exported image results. The `web` branch is available online at `https://jaruba.github.io/channel-logos/` and is a community effort to offer diverse options for TV channel logos.
