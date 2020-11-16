@@ -34,7 +34,7 @@ Alternatively, if you want to download all current variations of the logos, you 
 
 ## Pull TMDB TV Channel Export
 
-This step is optional and requires a TMDB API key. If you do not pull the export, then the last export that was committed to this repository will be used.
+This step is optional and requires a TMDB API key. If you do not pull the channel data export, then the last export that was committed to this repository will be used.
 
 ```
 npm run pull tmdb-api-key
@@ -43,6 +43,15 @@ npm run pull tmdb-api-key
 - `tmdb-api-key`: **required**, your TMDB API Key
 
 This action will result in the `./logo_paths.json` file being created from the newest DB export.
+
+
+## Download Original Logos Locally
+
+This step is optional, if you download the original channel logos locally, then it will process images much faster if you need to create many different variations of the logos.
+
+```
+npm run download-all
+```
 
 
 ## Process Images
@@ -60,7 +69,3 @@ npm start logo-preference background-color box-size margin
 - `margin`: _optional_, default is "20", the size of the padding for the logo in pixels
 
 This action will create a new folder in `./export` named based on the `logo-preference` and `background-color` choices with the processed images.
-
----
-
-**Important:** Consider creating a PR to this repository with the `./logo_paths.json` file if you pull in a new export so we keep the data fresh in the repo too. Also, you can create a PR to the `web` branch of this repo with the exported image results. The `web` branch is available online at `https://jaruba.github.io/channel-logos/` and is a community effort to offer diverse options for TV channel logos.
