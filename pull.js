@@ -38,7 +38,7 @@ needle.get(channelExportUrl, { compressed: true }, (err, resp, body) => {
       const delay = 0 // ms
 
       const queue = async.queue((task, cb) => {
-        console.log('fetching logo for ' + task.name)
+        console.log('Fetching logo data for ' + task.name)
         console.log(queue.length() + ' / '  + dbExport.length)
         const tag = task.name.toLowerCase()
         if (result[tag]) {
