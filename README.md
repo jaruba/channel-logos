@@ -10,7 +10,10 @@ An API for square channel logos, different variations.
 https://jaruba.github.io/channel-logos/logo_paths.json
 ```
 
+### Channel logo variations
+
 Currently supported logo variations (background HEX color, logo type: white / color):
+
 - `transparent-color`
 - `transparent-white`
 - `fff-color`
