@@ -1,6 +1,7 @@
 const fs = require('fs')
 const async = require('async')
 const needle = require('needle')
+const path = require('path')
 
 const neededFolders = [
 	path.join(__dirname, 'local'),
@@ -41,9 +42,9 @@ const queue = async.queue((task, cb) => {
         setTimeout(() => { cb() }, queueDelay)
     }
 
-    console.log('Downloading logo for ' + tag)
+    console.log('Downloading logo for ' + task.channel)
 
-    console.log(imageQueue.length() + ' / ' + countLogos)
+    console.log(queue.length() + ' / ' + countLogos)
 
     // download channel logo (color)
     needle.get('https://image.tmdb.org/t/p/w200'+task.logo, (err, res) => {
