@@ -53,7 +53,7 @@ needle.get(channelExportUrl, { compressed: true }, (err, resp, body) => {
           if (task.name) {
             if ((((body || {}).logos || [])[0] || {}).file_path) {
               console.log('success')
-              result[tag] = body.logos[0].file_path
+              result[tag] = (chooseLogo(body.logos) || {}).file_path
             }
           }
           setTimeout(() => { cb() }, delay)
@@ -73,3 +73,20 @@ needle.get(channelExportUrl, { compressed: true }, (err, resp, body) => {
     console.error(err || Error('Could not download daily export from TMDB'))
   }
 })
+
+function chooseLogo(logos) {
+  logos = logos || []
+  let highestScore = 0
+  let chosenLogo
+  logos.forEach(logo => {
+    if ((logo || {}).vote_average && logo.vote_average > highestScore)
+      highestScore = logo.vote_average
+  })
+  logos.reverse().some(logo => {
+    if ((logo || {}).vote_average == highestScore) {
+      chosenLogo = logo
+      return true
+    }
+  })
+  return chosenLogo || logos[0]
+}
