@@ -6,7 +6,8 @@
   "scripts": {
     "pull": "node pull",
     "start": "node index",
-    "build-all": "node build-all"
+    "build-all": "node build-all",
+    "download-all": "node download-original-logos"
   },
   "dependencies": {
     "needle": "^2.5.2",
