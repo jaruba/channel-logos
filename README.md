@@ -4,7 +4,8 @@
 
 An API for square channel logos, different variations.
 
-Get JSON of all channel logos:
+### JSON with all channel names / logos
+
 ```
 https://jaruba.github.io/channel-logos/logo_paths.json
 ```
@@ -18,7 +19,9 @@ Currently supported logo variations (background HEX color, logo type: white / co
 - `212c39-white`
 - `282c34-white`
 
-Example of getting a channel logo based on variation:
+
+### Example of getting a channel logo based on variation
+
 ```
 https://jaruba.github.io/channel-logos/export/transparent-color/tuomPhY2UtuPTqqFnKMVHvSb724.png
 ```
@@ -26,7 +29,7 @@ https://jaruba.github.io/channel-logos/export/transparent-color/tuomPhY2UtuPTqqF
 If you need a new background color + logo type variation, [create a pull request](https://github.com/jaruba/channel-logos/pulls) for the `web` branch or [an issue](https://github.com/jaruba/channel-logos/issues) for it.
 
 
-## Building
+## Building Locally
 
 Building steps:
 
@@ -44,12 +47,12 @@ Building steps:
 - process all logos of the channels in the db export to make them square of a set size, with a set background color and logo color
 
 
-## Prerequisites
+### Prerequisites
 
 - [Install Node.js](https://nodejs.org/en/download/) (last tested with: Node.js v8.12.0 / NPM v6.4.1)
 
 
-## Install
+### Install
 
 ```
 git clone http://github.com/jaruba/channel-logos
@@ -60,7 +63,7 @@ npm install
 Alternatively, if you want to download all current variations of the logos, you can use: `npm install jaruba/channel-logos#web`
 
 
-## Pull TMDB TV Channel Export
+### Pull TMDB TV Channel Export
 
 This step is optional and requires a TMDB API key. If you do not pull the channel data export, then the last export that was committed to this repository will be used.
 
@@ -73,7 +76,7 @@ npm run pull tmdb-api-key
 This action will result in the `./logo_paths.json` file being created from the newest DB export.
 
 
-## Download Original Logos Locally
+### Download Original Logos Locally
 
 This step is optional, if you download the original channel logos locally, then it will process images much faster if you need to create many different variations of the logos.
 
@@ -82,7 +85,7 @@ npm run download-all
 ```
 
 
-## Process Images
+### Process Images
 
 ```
 npm start logo-preference background-color box-size margin
