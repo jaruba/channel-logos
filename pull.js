@@ -63,6 +63,7 @@ needle.get(channelExportUrl, { compressed: true }, (err, resp, body) => {
       queue.drain(() => {
         console.log(Object.keys(result).length + ' channel logos saved to ./logo_paths.json')
         fs.writeFileSync('./logo_paths.json', JSON.stringify(result))
+        process.exit(0)
       })
 
       dbExport.forEach(el => { queue.push(el) })
