@@ -47,9 +47,14 @@ function addExtras(config) {
 
 }
 
+app.get('/custom-image-*', (req, res) => {
+	const filename = req.path.replace('/custom-image-','')+'.png'
+	res.sendFile(path.join(__dirname, 'custom', filename))
+})
+
 app.get('/local-image-*', (req, res) => {
 	const filename = req.path.replace('/local-image-','')+'.png'
-	res.sendFile(path.join(__dirname, 'custom', filename))
+	res.sendFile(path.join(__dirname, 'local', config.logo, filename))
 })
 
 app.get('/new-image-*', (req, res) => {
@@ -58,9 +63,11 @@ app.get('/new-image-*', (req, res) => {
 	let imgPath
 	let extraStyle = ''
 	if (fs.existsSync(path.join(__dirname, 'custom', filename))) {
-		imgPath = 'http://localhost:' + config.port + req.path.replace('/new-image-','/local-image-')
+		imgPath = 'http://localhost:' + config.port + req.path.replace('/new-image-','/custom-image-')
 		if (config.logo == 'white')
 			extraStyle = '; filter: brightness(0.3) invert(1) grayscale(100%)'
+	} else if (fs.existsSync(path.join(__dirname, 'local', config.logo, filename))) {
+		imgPath = 'http://localhost:' + config.port + req.path.replace('/new-image-','/local-image-')
 	} else
 		imgPath = 'https://image.tmdb.org/t/p/'+config.tmdbPrefix+'/'+filename
 	res.send('<html style="padding: 0; margin: 0"><body style="background-color: #'+config.backgroundColor+'; padding: 0; margin: 0"><div style="width: '+imgWidth+'px; height: '+imgWidth+'px; margin: '+config.margin+'px; background: url(\''+imgPath+'\') no-repeat center; background-size: contain'+extraStyle+'"></div></body></html>')
